@@ -1,13 +1,13 @@
+import './App.css'
 import {
   BrowserRouter as Router,
   Route,
-  Link,
   Redirect
 } from 'react-router-dom'
-import { Home } from './Home'
-import { SignUp } from './SignUp'
-import { Login } from './Login'
-import { AuthContextProvider, useAuthState } from './firebase'
+import { Wizard } from './Pages/Wizard'
+import { SignUp } from './Pages/SignUp'
+import { Login } from './Pages/Login'
+import { AuthContextProvider, useAuthState } from './Pages/firebase'
 
 const AuthenticatedRoute = ({ component: C, ...props }) => {
   const { isAuthenticated } = useAuthState()
@@ -39,11 +39,7 @@ function App() {
   return (
     <AuthContextProvider>
       <Router>
-        <div>
-          <Link to="/">Home</Link> | <Link to="/login">Login</Link> |{' '}
-          <Link to="/signup">SignUp</Link>
-        </div>
-        <AuthenticatedRoute exact path="/" component={Home} />
+        <AuthenticatedRoute exact path="/" component={Wizard} />
         <UnauthenticatedRoute exact path="/signup" component={SignUp} />
         <UnauthenticatedRoute exact path="/login" component={Login} />
       </Router>
