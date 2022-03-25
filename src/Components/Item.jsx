@@ -32,7 +32,7 @@ const Item = () => {
               <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} id='itemTitle'/>
               <input type="text" value={info} onChange={(e) => setInfo(e.target.value)} id='itemInfo' />
               <input type="text" value={price} onChange={(e) => setPrice(e.target.value)} id='ip' />
-              <button>Guardar</button>
+              <button>Agregar</button>
             </form>
           </div>
       </div>
