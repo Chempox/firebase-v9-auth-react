@@ -20,9 +20,9 @@ const Topbar = () => {
         price,
         completed: false,
       });
-      setTitle("Default");
-      setInfo("Default");
-      setPrice("000");
+      setTitle("");
+      setInfo("");
+      setPrice("");
   }
 
   return (
