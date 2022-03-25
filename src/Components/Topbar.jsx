@@ -26,9 +26,17 @@ const Topbar = () => {
   }
 
   return (
-    <div className='topbarMain'>
-        <h1>Add Item</h1>
-        <button onClick={handleSubmit}><GrAddCircle size={30}/></button>
+    <div>
+      <div className='topbarMain'>
+          <h1>Add Item</h1>
+          <button onClick={handleSubmit}><GrAddCircle size={30}/></button>
+      </div>
+      <form className='infoRight-inner' onSubmit={handleSubmit}>
+              <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} id='itemTitle'/>
+              <input type="text" value={info} onChange={(e) => setInfo(e.target.value)} id='itemInfo' />
+              <input type="text" value={price} onChange={(e) => setPrice(e.target.value)} id='ip' />
+              <button>Agregar</button>
+      </form>
     </div>
   );
 }

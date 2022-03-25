@@ -18,18 +18,29 @@ const Builder = () => {
       let itemsArray = [];
       querySnapshot.forEach((doc) => {
         itemsArray.push({ ...doc.data(), id: doc.id });
+        console.log(itemsArray)
       });
       setItems(itemsArray);
     });
     return () => unsub();
   }, []);
 
+  const handleDelete = async (id) => {
+      await deleteDoc(doc(db, "item", id));
+  }
+
   return (
     <div className='builderMain'>
         <Topbar></Topbar>
         <div className='builderItemSection'>
-            {items.map(items => {
-                return <Item></Item>
+            {items.map(item => {
+                return <Item
+                item={item}
+                title={item.title}
+                info={item.info}
+                price={item.price}
+                handleDelete={handleDelete}>
+                </Item>
             })}
             <Item></Item>
         </div>
